@@ -1,0 +1,25 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+<div  *ngIf="users; then userFound; else noUserFound">
+  user Found data below
+</div>
+
+  <ng-template #userFound>
+    <div *ngFor="let user of users">
+      <div [ngSwitch]="user.gender">
+        <div  class="male" *ngSwitchCase="'m'">
+      {{user.name}}
+        </div>
+        <div  class="girl" *ngSwitchCase="'f'">
+          {{user.name}}
+            </div>
+      </div>
+    </div>
+    
+  </ng-template>
+ 
+<ng-template #noUserFound>
+  no user found
+</ng-template>
